@@ -1,5 +1,5 @@
 include system
 include splunk
-include splunkAppForNix
-include splunkAppSos
-include splunkAppSideViewUtils
+include splunk_app_for_nix
+include splunk_app_sos
+include splunk_app_sideview_utils

@@ -1,4 +1,4 @@
-# splunk standalone init manifest for splunkAppForNix
+# splunk init manifest for splunkAppForNix
 class splunkAppForNix {
 
   common::tarball{ $::splunkonnix_tgz:

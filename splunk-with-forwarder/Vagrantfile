@@ -38,9 +38,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     splunk.vm.synced_folder "../rpms/", "/media/rpms"
 
     splunk.vm.provision :puppet do |puppet|
+      puppet.environment = "all"
+      puppet.environment_path = "../environments"
       puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "modules"
       puppet.manifest_file  = "splunk.pp"
-      puppet.module_path = "../puppet/modules"
       puppet.facter = {
         "splunk_rpm" => splunk_rpm,
         "sos_tgz" => sos_tgz,

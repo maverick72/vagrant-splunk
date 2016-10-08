@@ -29,29 +29,40 @@ class splunk_app_for_nix {
     notify  => Service['splunk'],
   }
 
-  file { '/opt/splunk/etc/apps/Splunk_TA_nix':
-    ensure  => 'directory',
-    owner   => 'root',
-    group   => 'root',
-    recurse => true,
-    source  => 'file:///opt/splunk/etc/apps/splunk_app_for_nix/install/Splunk_TA_nix',
-    require => Common::Tarball[$::splunkonnix_tgz]
-  }
+  #file { '/opt/splunk/etc/apps/Splunk_TA_nix':
+  #  ensure  => 'directory',
+  #  owner   => 'root',
+  #  group   => 'root',
+  #  recurse => true,
+  #  source  => 'file:///opt/splunk/etc/apps/splunk_app_for_nix/install/Splunk_TA_nix',
+  #  require => Common::Tarball[$::splunkonnix_tgz]
+  #}
 
-  file { '/opt/splunk/etc/apps/Splunk_TA_nix/local':
+  #file { '/opt/splunk/etc/apps/Splunk_TA_nix/local':
+  #  ensure  => directory,
+  #  require => File['/opt/splunk/etc/apps/Splunk_TA_nix']
+  #}
+
+  file { '/opt/splunk/etc/apps/SA-nix/local':
     ensure  => directory,
-    require => File['/opt/splunk/etc/apps/Splunk_TA_nix']
+    require => File['/opt/splunk/etc/apps/SA-nix']
   }
 
-  file { '/opt/splunk/etc/apps/Splunk_TA_nix/local/inputs.conf':
+  #file { '/opt/splunk/etc/apps/Splunk_TA_nix/local/inputs.conf':
+  #  source  => 'puppet:///modules/splunk_app_for_nix/Splunk_TA_nix/inputs.conf',
+  #  require => File['/opt/splunk/etc/apps/Splunk_TA_nix/local'],
+  #  notify  => Service['splunk'],
+  #}
+
+  file { '/opt/splunk/etc/apps/SA-nix/local/inputs.conf':
     source  => 'puppet:///modules/splunk_app_for_nix/Splunk_TA_nix/inputs.conf',
-    require => File['/opt/splunk/etc/apps/Splunk_TA_nix/local'],
+    require => File['/opt/splunk/etc/apps/SA-nix/local'],
     notify  => Service['splunk'],
   }
 
-  file { '/opt/splunk/etc/apps/Splunk_TA_nix/local/app.conf':
+  file { '/opt/splunk/etc/apps/SA-nix/local/app.conf':
     source  => 'puppet:///modules/splunk_app_for_nix/Splunk_TA_nix/app.conf',
-    require => File['/opt/splunk/etc/apps/Splunk_TA_nix/local'],
+    require => File['/opt/splunk/etc/apps/SA-nix/local'],
     notify  => Service['splunk'],
   }
 

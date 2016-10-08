@@ -9,8 +9,8 @@ sos_tgz="sos-splunk-on-splunk_321.tgz"
 sideview_utils_tgz="sideview-utils-lgpl_135.tgz"
 splunkonnix_tgz="splunk-app-for-unix-and-linux_520.tgz"
 
-forwarder_rpm="splunkforwarder-6.1.3-220630-linux-2.6-x86_64.rpm"
-splunkaddonnix_tgz="splunk-add-on-for-unix-and-linux_503.tgz"
+forwarder_rpm="splunkforwarder-6.5.0-59c8927def0f-linux-2.6-x86_64.rpm"
+splunkaddonnix_tgz="splunk-add-on-for-unix-and-linux_523.tgz"
 
 splunk_ip="192.168.50.4"
 forwarder_ip="192.168.50.5"
@@ -44,7 +44,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.module_path = "modules"
       puppet.manifest_file  = "splunk.pp"
       puppet.facter = {
-        "splunk_rpm" => splunk_rpm,
+        "splunk_rpm" => "splunk-6.5.0-59c8927def0f-linux-2.6-x86_64.rpm",
         "sos_tgz" => sos_tgz,
         "sideview_utils_tgz" => sideview_utils_tgz,
         "splunkonnix_tgz" => splunkonnix_tgz

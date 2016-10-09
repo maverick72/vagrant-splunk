@@ -1,6 +1,17 @@
 vagrant-splunk
 ==============
 
+October 2016 version of pvanisacker/vagrant-splunk original code
+
+- Updated with newer version of splunk engine and forwarder.
+- Supports new vagrant puppet version
+- Passes puppet-lint and puppet syntax check
+
+** Note ** Only splunk-standalone and splunk-with-forwarder have been done at the moment.  Working on the
+  rest should comme this week (10/10/2016)
+
+Original README restrictions still applies
+
 This is a collection of vagrant configuration files for VirtualBox instances running different Splunk setups.
 
 The purpose of them is to allow you to easily get started with Splunk.

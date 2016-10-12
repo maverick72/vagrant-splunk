@@ -9,7 +9,6 @@ class splunk {
   package { 'splunk':
     ensure   => installed,
     source   => "file:///media/rpms/${::splunk_rpm}",
-    #source   => 'file:///media/rpms/splunk-6.5.0-59c8927def0f-linux-2.6-x86_64.rpm',
     provider => 'rpm'
   }
 

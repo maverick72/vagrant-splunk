@@ -1,26 +1,26 @@
 include system
 include splunk
-include splunk-master
-include splunk-app-sos
-include splunk-app-sideview-utils
-include splunk-master-app-addon-for-nix
-include splunk-master-app-addon-for-sos
-class {'splunk-outputs':
-	type => "splunk"
+include splunk_master
+include splunk_app_sos
+include splunk_app_sideview_utils
+include splunk_master_app_addon_for_nix
+include splunk_master_app_addon_for_sos
+class {'splunk_outputs':
+  type => 'splunk'
 }
-class {'splunk-app-addon-for-nix': 
-	install_dir=>"/opt/splunk/etc/master-apps",
-	require => Package["splunk"],
-	notify  => Service["splunk"]
+class {'splunk_app_addon_for_nix':
+  install_dir =>'/opt/splunk/etc/master-apps',
+  require     => Package['splunk'],
+  notify      => Service['splunk']
 }
-file {"/opt/splunk/etc/apps/Splunk_TA_nix": 
-	source => "/opt/splunk/etc/master-apps/Splunk_TA_nix",
-	recurse => true,
-	require => [Package["splunk"],Class["splunk-app-addon-for-nix"]],
-	notify  => Service["splunk"]
+file {'/opt/splunk/etc/apps/Splunk_TA_nix':
+  source  => '/opt/splunk/etc/master-apps/Splunk_TA_nix',
+  recurse => true,
+  require => [Package['splunk'],Class['splunk_app_addon_for_nix']],
+  notify  => Service['splunk']
 }
-class {'splunk-app-addon-for-sos': 
-	install_dir=>"/opt/splunk/etc/master-apps",
-	require => Package["splunk"],
-	notify  => Service["splunk"]
+class {'splunk_app_addon_for_sos':
+  install_dir =>'/opt/splunk/etc/master-apps',
+  require     => Package['splunk'],
+  notify      => Service['splunk']
 }

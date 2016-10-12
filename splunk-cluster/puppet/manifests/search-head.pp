@@ -1,9 +1,9 @@
 include system
 include splunk
-include splunk-search-head
-include splunk-app-for-nix
-include splunk-app-sos
-include splunk-app-sideview-utils
+include splunk_search_head
+include splunk_app_for_nix
+include splunk_app_sos
+include splunk_app_sideview_utils
 class {'splunk-outputs':
-	type => "splunk"
+  type => 'splunk'
 }

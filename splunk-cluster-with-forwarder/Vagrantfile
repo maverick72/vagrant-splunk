@@ -4,13 +4,13 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-splunk_rpm="splunk-6.1.3-220630-linux-2.6-x86_64.rpm"
-sos_tgz="sos-splunk-on-splunk_32.tgz"
+splunk_rpm="splunk-6.5.0-59c8927def0f-linux-2.6-x86_64.rpm"
+sos_tgz="sos-splunk-on-splunk_321.tgz"
 sideview_utils_tgz="sideview-utils-lgpl_135.tgz"
-splunkonnix_tgz="splunk-app-for-unix-and-linux_501.tgz"
+splunkonnix_tgz="splunk-app-for-unix-and-linux_520.tgz"
 
-forwarder_rpm="splunkforwarder-6.1.3-220630-linux-2.6-x86_64.rpm"
-splunkaddonnix_tgz="splunk-add-on-for-unix-and-linux_503.tgz"
+forwarder_rpm="splunkforwarder-6.5.0-59c8927def0f-linux-2.6-x86_64.rpm"
+splunkaddonnix_tgz="splunk-add-on-for-unix-and-linux_523.tgz"
 splunkaddonsos_tgz="splunk-on-splunk-sos-add-on-for-unix-and-linux_205.tgz"
 
 search_head_ip="192.168.50.2"
@@ -30,7 +30,7 @@ peer_list=peer_list.join(",")
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "puppetlabs/centos-6.5-64-puppet"
+  config.vm.box = "puppetlabs/centos-6.6-64-puppet"
 
   # Configure Splunk master first, without it the searchhead cannot be created
   config.vm.define "master" do |master|
@@ -48,9 +48,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     master.vm.synced_folder "../rpms/", "/media/rpms"
 
     master.vm.provision :puppet do |puppet|
+      puppet.environment = "all"
+      puppet.environment_path = "../environments"
       puppet.manifests_path = "puppet/manifests"
       puppet.manifest_file  = "master.pp"
-      puppet.module_path = "../puppet/modules"
+      puppet.module_path = "modules"
       puppet.facter = {
         "splunk_rpm" => splunk_rpm,
         "sos_tgz" => sos_tgz,
@@ -82,9 +84,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     search_head.vm.synced_folder "../rpms/", "/media/rpms"
 
     search_head.vm.provision :puppet do |puppet|
+      puppet.environment = "all"
+      puppet.environment_path = "../environments"
       puppet.manifests_path = "puppet/manifests"
       puppet.manifest_file  = "search-head.pp"
-      puppet.module_path = "../puppet/modules"
+      puppet.module_path = "modules"
       puppet.facter = {
         "splunk_rpm" => splunk_rpm,
         "sos_tgz" => sos_tgz,
@@ -113,9 +117,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       peer_config.vm.synced_folder "../rpms/", "/media/rpms"
 
       peer_config.vm.provision :puppet do |puppet|
+        puppet.environment = "all"
+        puppet.environment_path = "../environments"
         puppet.manifests_path = "puppet/manifests"
         puppet.manifest_file  = "peer-node.pp"
-        puppet.module_path = "../puppet/modules"
+        puppet.module_path = "modules"
         puppet.facter = {
           "splunk_rpm" => splunk_rpm,
           "splunkaddonnix_tgz" => splunkaddonnix_tgz,
@@ -141,9 +147,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     forwarder.vm.synced_folder "../rpms/", "/media/rpms"
 
     forwarder.vm.provision :puppet do |puppet|
+      puppet.environment = "all"
+      puppet.environment_path = "../environments"
       puppet.manifests_path = "puppet/manifests"
       puppet.manifest_file  = "forwarder.pp"
-      puppet.module_path = "../puppet/modules"
+      puppet.module_path = "modules"
       puppet.facter = {
         "forwarder_rpm" => forwarder_rpm,
         "splunkaddonnix_tgz" => splunkaddonnix_tgz,

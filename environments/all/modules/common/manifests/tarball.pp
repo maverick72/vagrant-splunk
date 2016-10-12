@@ -1,3 +1,4 @@
+# Tarball handeling manifest
 define common::tarball($pkg_tgz, $source_path, $install_dir) {
   # download the tgz file
   file { $pkg_tgz:

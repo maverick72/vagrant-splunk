@@ -1,7 +1,7 @@
 vagrant-splunk
 ==============
 
-October 2016 version of pvanisacker/vagrant-splunk original code
+October 2016 version of @pvanisacker vagrant-splunk original code
 
 - Updated with newer version of splunk engine, forwarder and apps.
 - Supports new vagrant puppet version
@@ -11,10 +11,10 @@ October 2016 version of pvanisacker/vagrant-splunk original code
 
 ## Note ##
 
-splunk-standalone
-splunk-with-forwarder
-splunk-cluster
-splunk-cluster-with-forwarder
+* splunk-standalone
+* splunk-with-forwarder
+* splunk-cluster
+* splunk-cluster-with-forwarder
 
 have been done at the moment.  Working on the rest should comme this week (10/10/2016)
 

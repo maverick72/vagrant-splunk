@@ -1,5 +1,5 @@
 include system
 include splunk
-include splunk-peer-node
-include splunk-inputs
+include splunk_peer_node
+include splunk_inputs
 

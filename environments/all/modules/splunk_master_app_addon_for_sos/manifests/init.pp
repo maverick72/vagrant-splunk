@@ -5,7 +5,7 @@ class splunk_master_app_addon_for_sos {
     owner   => 'root',
     group   => 'root',
     recurse => true,
-    source  => 'puppet:///modules/splunk-master-app-addon-for-sos/TA-sos/local/indexes.conf',
+    source  => 'puppet:///modules/splunk_master_app_addon_for_sos/TA-sos/local/indexes.conf',
     notify  => Service['splunk'],
     require => File['/opt/splunk/etc/master-apps/TA-sos/local']
   }

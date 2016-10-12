@@ -12,12 +12,12 @@ class splunk_app_addon_for_sos( $install_dir='/opt/splunk/etc/apps/' ) {
   }
 
   file { "${install_dir}/TA-sos/local/app.conf":
-    source  => 'puppet:///modules/splunkAppAddonForSos/app.conf',
+    source  => 'puppet:///modules/splunk_app_addon_for_sos/app.conf',
     require => File["${install_dir}/TA-sos/local"]
   }
 
   file { "${install_dir}/TA-sos/local/inputs.conf":
-    source  => 'puppet:///modules/splunkAppAddonForSos/inputs.conf',
+    source  => 'puppet:///modules/splunk_app_addon_for_sos/inputs.conf',
     require => File["${install_dir}/TA-sos/local"]
   }
 

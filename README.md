@@ -6,6 +6,8 @@ October 2016 version of pvanisacker/vagrant-splunk original code
 - Updated with newer version of splunk engine, forwarder and apps.
 - Supports new vagrant puppet version
 - Passes puppet-lint and puppet style guide check
+- Don't forget to download the updated packages and apps and put
+  them in /rpms /apps folders
 
 ** Note **
 

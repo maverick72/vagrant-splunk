@@ -16,7 +16,8 @@ October 2016 version of @pvanisacker vagrant-splunk original code
 * splunk-cluster
 * splunk-cluster-with-forwarder
 
-have been done at the moment.  Working on the rest should comme this week (10/10/2016)
+have been done at the moment.  Working on the rest.
+Should be done by the end of this week (10/10/2016)
 
 Original README restrictions form pvanisacker still apply
 =========================================================

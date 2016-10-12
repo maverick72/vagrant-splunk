@@ -9,7 +9,7 @@ October 2016 version of pvanisacker/vagrant-splunk original code
 - Don't forget to download the updated packages and apps and put
   them in /rpms /apps folders
 
-** Note **
+## Note ##
 
 splunk-standalone
 splunk-with-forwarder
